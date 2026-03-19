@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "clinica-claude.html", "use": "@vercel/static" },
+    { "src": "clinica-stitch.html", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/(clinica-claude|clinica-stitch)\.html", "dest": "/$1.html" },
+    { "src": "/", "dest": "/clinica-claude.html" }
+  ]
+}

@@ -1,0 +1,22 @@
+|-- clinica-claude.html
+|-- clinica-site-1.html
+|-- clinica-site.html
+|-- imagens-clinica
+    |-- analises.jpg
+    |-- cheque-dentistas.jpg
+    |-- consulta-diabetes.jpg
+    |-- consulta-medicina-geral.jpg
+    |-- consulta-pediatria-2.jpg
+    |-- consulta-pediatria.jpg
+    |-- consultorio-2.jpg
+    |-- consultorio.jpg
+    |-- logo-3.png
+    |-- logo.jpg
+    |-- logo1.png
+    |-- medicina-familiar-geral.jpg
+    |-- montra-clinica.jpg
+    |-- rececao.jpg
+|-- logo1 copy.png
+|-- logo1.png
+|-- README.md
+|-- vercel.json

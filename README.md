@@ -2,11 +2,13 @@
 
 Este repositório contém exemplos de páginas HTML para o site da SW Clinic.
 
-## Estrutura
+## Estrutura e Descrição das Páginas
 
-- `clinica-site.html`: Página principal com menu transparente e hero image sobreposta.
-- `clinica-site-1.html`: Variante da página principal, utilizada para testes de layout e comportamento do menu.
-- `imagens-clinica/`: Pasta com imagens utilizadas nas páginas.
+- `clinica-site.html`: Página principal da clínica, com menu fixo e transparente sobre a imagem hero. Inclui animações de entrada, cards de serviços com efeito moderno, parallax leve e mudança de fundo do menu ao fazer scroll.
+- `clinica-site-1.html`: Variante da página principal, utilizada para testes de layout, comportamento do menu e experimentação de efeitos visuais. Possui menu transparente, overlay na hero image e mudança de cor ao rolar.
+- `clinica-claude.html`: Página alternativa com design personalizado, paleta de cores exclusiva (dourado, azul escuro, bege), cards de serviços com hover, galeria de imagens, animações suaves e menu responsivo.
+- `clinica-stitch.html`: Página de exemplo com foco em animações de scroll reveal, hero animado, cards de serviços, galeria de imagens e menu responsivo. Utiliza Tailwind CSS e efeitos modernos.
+- `imagens-clinica/`: Pasta com imagens utilizadas nas páginas, incluindo fotos de consultórios, serviços, equipe e logotipos.
 
 ## Funcionalidades
 

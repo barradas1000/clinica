@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "builds": [
-    { "src": "clinica-claude.html", "use": "@vercel/static" },
-    { "src": "clinica-stitch.html", "use": "@vercel/static" }
-  ],
   "routes": [
-    { "src": "/(clinica-claude|clinica-stitch)\.html", "dest": "/$1.html" },
-    { "src": "/", "dest": "/clinica-claude.html" }
+    { "src": "/index", "dest": "/index.html" },
+    { "src": "/clinica-site", "dest": "/clinica-site.html" },
+    { "src": "/clinica-site-1", "dest": "/clinica-site-1.html" },
+    { "src": "/clinica-claude", "dest": "/clinica-claude.html" },
+    { "src": "/", "dest": "/index.html" }
   ]
 }

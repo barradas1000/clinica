@@ -1,5 +1,4 @@
 |-- clinica-claude.html
-|-- clinica-site-1.html
 |-- clinica-site.html
 |-- imagens-clinica
     |-- analises.jpg
@@ -16,6 +15,7 @@
     |-- medicina-familiar-geral.jpg
     |-- montra-clinica.jpg
     |-- rececao.jpg
+|-- index.html
 |-- logo1 copy.png
 |-- logo1.png
 |-- README.md

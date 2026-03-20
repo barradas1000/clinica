@@ -313,7 +313,7 @@ img:hover {
 <div class="flex flex-wrap gap-4 fade-up" style="animation-delay: 1.5s">
             <a class="bg-white text-gray-900 px-8 py-3 rounded-full font-medium flex items-center gap-2 hover:bg-sw-gold/10 hover:scale-105 transition-all duration-500" href="#agendar">
               Agendar Consulta <span class="text-xl"></span>
-</a>
+            </a>
 <a class="border border-white/50 text-white px-8 py-3 rounded-full font-medium hover:bg-sw-gold/5 hover:scale-105 transition-all duration-500" href="#servicos">
               Os Nossos Serviços
             </a>
@@ -383,6 +383,28 @@ img:hover {
 <!-- END: VideoSection -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // Scroll suave para o botão Agendar Consulta
+  const agendarConsultaBtns = document.querySelectorAll('a[href="#agendar"]');
+  function scrollToAgendar(e) {
+    e.preventDefault();
+    const target = document.getElementById('agendar');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+  agendarConsultaBtns.forEach(btn => btn.addEventListener('click', scrollToAgendar));
+  // Scroll suave para o botão Agendar
+  function scrollToAgendar(e) {
+    e.preventDefault();
+    const target = document.getElementById('agendar');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+  const agendarBtn = document.getElementById('headerCta');
+  if (agendarBtn) agendarBtn.addEventListener('click', scrollToAgendar);
+  const agendarBtnMobile = document.getElementById('headerCtaMobile');
+  if (agendarBtnMobile) agendarBtnMobile.addEventListener('click', scrollToAgendar);
   const video = document.getElementById('videoAutoplayScroll');
   if (!video) return;
   // Pausa o vídeo inicialmente

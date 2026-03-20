@@ -199,6 +199,16 @@ img:hover {
 <script>
   // Desktop Dropdown (corrigido)
   document.addEventListener('DOMContentLoaded', function() {
+    // Scroll suave para todos os botões que levam ao agendar
+    const agendarBtns = document.querySelectorAll('a[href="#agendar"]');
+    function scrollToAgendar(e) {
+      e.preventDefault();
+      const target = document.getElementById('agendar');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    agendarBtns.forEach(btn => btn.addEventListener('click', scrollToAgendar));
     const btnDesktop = document.getElementById('menuDropdownBtn');
     const dropdownDesktop = document.getElementById('menuDropdown');
     if (btnDesktop && dropdownDesktop) {

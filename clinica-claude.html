@@ -7,6 +7,21 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
+    
+                #mainHeader.scrolled #mainNav {
+                  background: #fff !important;
+                }
+            #mainHeader.scrolled {
+              background: #fff !important;
+              border-bottom: 1.5px solid #e5e7eb;
+              box-shadow: 0 2px 24px 0 rgba(30,41,59,0.08);
+            }
+            #mainHeader.scrolled #mainNav a {
+              color: #1A2433 !important;
+            }
+        #mainHeader.scrolled #mainNav a {
+          color: #1A2433 !important;
+        }
     * { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; }
     :root {
@@ -14,6 +29,12 @@
       --sw-dark:  #1A2433;
       --beech:    #E5D3B3;
       --beech-bg: #F9F5F0;
+    }
+
+    #mainHeader.scrolled {
+      background: #fff !important;
+      border-bottom: 1.5px solid #e5e7eb;
+      box-shadow: 0 2px 24px 0 rgba(30,41,59,0.08);
     }
     .bg-sw-gold    { background-color: var(--sw-gold); }
     .text-sw-gold  { color: var(--sw-gold); }
@@ -39,31 +60,137 @@
     .delay-3  { animation-delay:.36s; }
     #toast { position:fixed; bottom:2rem; right:2rem; background:var(--sw-dark); color:#fff; padding:.85rem 1.5rem; border-left:4px solid var(--sw-gold); border-radius:.5rem; font-size:.875rem; transform:translateY(120%); transition:transform .35s ease; z-index:300; }
     #toast.show { transform:translateY(0); }
+    #menuDropdown a { color: #000000 !important; }
   </style>
 </head>
 <body class="bg-white text-gray-900">
 
 <!-- HEADER -->
-<header id="site-header" class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 shadow-sm transition-shadow duration-300">
+<header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="box-shadow:none!important;border:none!important;">
   <div class="container mx-auto px-4 h-20 flex items-center justify-between">
-    <a href="#" class="flex-shrink-0">
-      <img src="imagens-clinica/logo.jpg" alt="SW Clinic" class="h-12 object-contain"/>
+    <a class="flex-shrink-0" href="#">
+      <div class="h-16 w-16 flex items-center justify-center p-1">
+        <img alt="SW Clinic Logo" class="h-full w-full object-contain" src="imagens-clinica/logo1.png"/>
+      </div>
     </a>
-    <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide text-gray-700">
-      <a href="#"          class="hover:text-sw-gold transition-colors">INÍCIO</a>
-      <a href="#a-clinica" class="hover:text-sw-gold transition-colors">A CLÍNICA</a>
-      <a href="#servicos"  class="hover:text-sw-gold transition-colors">SERVIÇOS</a>
-      <a href="#galeria"   class="hover:text-sw-gold transition-colors">GALERIA</a>
-      <a href="#contactos" class="hover:text-sw-gold transition-colors">CONTACTOS</a>
+    <!-- Navigation Menu -->
+    <nav id="mainNav" class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide text-white transition-colors duration-300">
+      <a class="hover:text-sw-gold transition-colors" href="#">INÍCIO</a>
+      <a class="hover:text-sw-gold transition-colors" href="#a-clinica">A CLÍNICA</a>
+      <a class="hover:text-sw-gold transition-colors" href="#servicos">SERVIÇOS</a>
+      <a class="hover:text-sw-gold transition-colors" href="#galeria">GALERIA</a>
+      <a class="hover:text-sw-gold transition-colors" href="#contactos">CONTACTOS</a>
+      <div class="relative">
+        <button id="menuDropdownBtn" class="bg-orange-500 text-white px-4 py-2 rounded-full font-semibold shadow hover:bg-orange-600 transition focus:outline-none flex items-center">
+          Outras opções
+          <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="menuDropdown" class="hidden absolute right-0 mt-2 w-48 bg-gray-50 border border-gray-400 rounded-lg shadow-lg z-50">
+          <a href="index.html" class="block px-4 py-2 text-gray-900 font-semibold hover:bg-orange-100 hover:text-gray-900">Página 1</a>
+          <a href="clinica-site.html" class="block px-4 py-2 text-gray-900 font-semibold hover:bg-orange-100 hover:text-gray-900">Página 2</a>
+          <a href="clinica-claude.html" class="block px-4 py-2 text-gray-900 font-semibold hover:bg-orange-100 hover:text-gray-900">Página 3</a>
+          <a href="video.html" class="block px-4 py-2 text-gray-900 font-semibold hover:bg-orange-100 hover:text-gray-900">Página 4</a>
+        </div>
+      </div>
     </nav>
-    <div class="flex items-center gap-3">
-      <button onclick="openModal()" class="hidden md:inline-block bg-sw-dark text-white px-6 py-2.5 rounded-full text-sm font-bold hover:opacity-90 transition-all">AGENDAR</button>
-      <button id="hamburger" onclick="toggleMenu()" class="md:hidden p-2 text-gray-700">
-        <svg id="icon-menu"  xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-    </div>
+    <!-- CTA Button (Desktop) -->
+    
+    <a id="headerCta" class="bg-sw-gold text-white px-6 py-2.5 rounded-full text-sm font-medium shadow-lg hover:bg-sw-gold/80 hover:scale-105 transition-all duration-500 hidden md:inline-block" href="#contactos">
+      AGENDAR
+    </a>
+
+    <!-- Mobile Hamburger Button -->
+    <button id="hamburgerBtn" class="md:hidden text-white focus:outline-none">
+      <svg id="hamburgerIcon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="closeIcon" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
   </div>
+</header>
+
+<!-- Mobile Menu (Hidden by default) -->
+<div id="mobileMenu" class="hidden fixed top-20 left-0 w-full bg-white shadow-lg z-40 pb-4 md:hidden">
+  <nav class="flex flex-col items-center space-y-4 pt-4 text-gray-900 text-base font-medium">
+    <a class="hover:text-sw-gold transition-colors" href="#" onclick="toggleMobileMenu()">INÍCIO</a>
+    <a class="hover:text-sw-gold transition-colors" href="#a-clinica" onclick="toggleMobileMenu()">A CLÍNICA</a>
+    <a class="hover:text-sw-gold transition-colors" href="#servicos" onclick="toggleMobileMenu()">SERVIÇOS</a>
+    <a class="hover:text-sw-gold transition-colors" href="#galeria" onclick="toggleMobileMenu()">GALERIA</a>
+    <a class="hover:text-sw-gold transition-colors" href="#contactos" onclick="toggleMobileMenu()">CONTACTOS</a>
+    <div class="relative w-full text-center">
+        <button id="menuDropdownBtnMobile" class="bg-orange-500 text-white px-4 py-2 rounded-full font-semibold shadow hover:bg-orange-600 transition focus:outline-none flex items-center justify-center mx-auto mt-2">
+          Outras opções
+          <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="menuDropdownMobile" class="hidden mt-2 w-48 bg-white border border-gray-400 rounded-lg shadow-lg z-50 mx-auto">
+          <a href="index.html" class="block px-4 py-2 text-gray-900 font-semibold hover:bg-orange-100 hover:text-gray-900" onclick="toggleMobileMenu()">Página 1</a>
+          <a href="clinica-site.html" class="block px-4 py-2 text-gray-900 font-semibold hover:bg-orange-100 hover:text-gray-900" onclick="toggleMobileMenu()">Página 2</a>
+          <a href="clinica-claude.html" class="block px-4 py-2 text-gray-900 font-semibold hover:bg-orange-100 hover:text-gray-900" onclick="toggleMobileMenu()">Página 3</a>
+          <a href="video.html" class="block px-4 py-2 text-gray-900 font-semibold hover:bg-orange-100 hover:text-gray-900" onclick="toggleMobileMenu()">Página 4</a>
+        </div>
+    </div>
+    <a id="headerCtaMobile" class="bg-sw-gold text-white px-6 py-2.5 rounded-full text-sm font-medium shadow-lg hover:bg-sw-gold/80 hover:scale-105 transition-all duration-500 mt-4" href="#agendar" onclick="toggleMobileMenu()">
+      AGENDAR
+    </a>
+  </nav>
+</div>
+<script>
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('mainHeader');
+      if (window.scrollY > 60) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  // Desktop Dropdown
+  document.addEventListener('DOMContentLoaded', function() {
+    const btnDesktop = document.getElementById('menuDropdownBtn');
+    const dropdownDesktop = document.getElementById('menuDropdown');
+    if (btnDesktop && dropdownDesktop) {
+      btnDesktop.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdownDesktop.classList.toggle('hidden');
+      });
+      document.addEventListener('click', function(e) {
+        if (!btnDesktop.contains(e.target) && !dropdownDesktop.contains(e.target)) {
+          dropdownDesktop.classList.add('hidden');
+        }
+      });
+    }
+  });
+
+  // Mobile Menu & Dropdown
+  function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const hamburgerIcon = document.getElementById('hamburgerIcon');
+    const closeIcon = document.getElementById('closeIcon');
+    mobileMenu.classList.toggle('hidden');
+    hamburgerIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    if (hamburgerBtn) {
+      hamburgerBtn.addEventListener('click', toggleMobileMenu);
+    }
+
+    const btnMobile = document.getElementById('menuDropdownBtnMobile');
+    const dropdownMobile = document.getElementById('menuDropdownMobile');
+    if (btnMobile && dropdownMobile) {
+      btnMobile.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdownMobile.classList.toggle('hidden');
+      });
+      document.addEventListener('click', function(e) {
+        // Ensure this only closes the mobile dropdown if the mobile menu is open
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (!mobileMenu.classList.contains('hidden') && !btnMobile.contains(e.target) && !dropdownMobile.contains(e.target)) {
+          dropdownMobile.classList.add('hidden');
+        }
+      });
+    }
+  });
+</script>
 </header>
 
 <!-- MOBILE MENU -->
@@ -90,13 +217,13 @@
       <span class="text-white text-sm font-medium tracking-wide">Abertos e prontos para o receber</span>
     </div>
     <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white max-w-3xl mb-6 fade-up delay-1">
-      Excelência clínica<br/>num ambiente de<br/>total <em class="text-yellow-400 not-italic">conforto</em>.
+      Excelência clínica<br/>num ambiente de<br/>total <em class="text-yellow-400 not-italic">conforto</em>
     </h1>
     <p class="text-white/80 text-base md:text-lg max-w-xl mb-10 leading-relaxed fade-up delay-2">
       Na SW Clinic assumimos o compromisso de aliar a melhor medicina a um espaço moderno, sereno e pensado para o seu bem-estar.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 fade-up delay-3">
-      <button onclick="openModal()" class="inline-flex items-center justify-center bg-white text-gray-900 px-8 py-4 rounded-full font-bold text-sm hover:bg-gray-100 transition-all shadow-lg">Agendar Consulta</button>
+      <a href="#contactos" class="inline-flex items-center justify-center bg-white text-gray-900 px-8 py-4 rounded-full font-bold text-sm hover:bg-gray-100 transition-all shadow-lg">Agendar Consulta</a>
       <a href="#servicos" class="inline-flex items-center justify-center border border-white/40 text-white px-8 py-4 rounded-full font-medium text-sm hover:bg-white/10 transition-all backdrop-blur-sm">Os Nossos Serviços</a>
     </div>
   </div>
@@ -122,7 +249,7 @@
           </div>
           <div class="bg-beech-light rounded-xl p-5 border border-beech">
             <h4 class="font-bold text-gray-800 mb-1">Acolhedor</h4>
-            <p class="text-xs text-gray-500">Design minimalista focado no seu conforto.</p>
+            <p class="text-xs text-gray-500">Design minimalista focado no seu conforto</p>
           </div>
         </div>
       </div>
@@ -172,7 +299,7 @@
         <div class="p-6 flex flex-col flex-1">
           <h3 class="font-bold text-lg mb-2">Medicina Dentária</h3>
           <p class="text-gray-500 text-sm flex-1 mb-4">Tratamentos completos para o seu sorriso num ambiente relaxante.</p>
-          <button onclick="openModal('Medicina Dentária')" class="self-start border border-gray-300 text-gray-700 px-5 py-2 rounded-full text-xs font-semibold hover:bg-sw-dark hover:text-white hover:border-sw-dark transition-all">Agendar</button>
+          <a href="#contactos" class="self-start border border-gray-300 text-gray-700 px-5 py-2 rounded-full text-xs font-semibold hover:bg-sw-dark hover:text-white hover:border-sw-dark transition-all">Agendar</a>
         </div>
       </div>
 
@@ -258,7 +385,7 @@
           <p class="text-xs font-bold tracking-widest text-gray-400 uppercase mb-3">MORADA</p>
           <p class="flex items-start gap-2 text-sm text-gray-700">
             <svg class="h-4 w-4 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            <span>Portugal<br/>(Localização exata da Clínica)</span>
+            <span>Rua Custódio Brás Pacheco 184,<br/>Vila Nova de Milfontes, Portugal, 7645-251</span>
           </p>
         </div>
       </div>
@@ -284,18 +411,7 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="bg-sw-dark text-white py-12">
-  <div class="container mx-auto px-4 flex flex-col items-center gap-5 text-center">
-    <img src="imagens-clinica/logo.jpg" alt="SW Clinic" class="h-14 w-auto rounded-lg"/>
-    <p class="text-xs text-gray-400">© <span id="year"></span> SW Clinic. Clínica Médica e Dentária. Todos os direitos reservados.</p>
-    <a href="https://www.facebook.com/profile.php?id=61587422210167" target="_blank" rel="noopener noreferrer"
-       class="text-xs text-gray-400 hover:text-sw-gold transition-colors flex items-center gap-2">
-      <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.018 1.793-4.683 4.533-4.683 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-      Facebook
-    </a>
-  </div>
-</footer>
+
 
 <!-- MODAL AGENDAR -->
 <div id="modal-overlay" role="dialog" aria-modal="true">
@@ -357,8 +473,7 @@
   </div>
 </div>
 
-<!-- TOAST -->
-<div id="toast"></div>
+
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
@@ -437,4 +552,27 @@
   });
 </script>
 </body>
+<!-- Google Maps Section -->
+<section class="w-full flex flex-col items-center py-10 bg-beech-light">
+  <h2 class="text-2xl md:text-3xl font-bold mb-4 text-sw-dark">Onde estamos</h2>
+  <p class="mb-4 text-lg text-sw-dark font-medium text-center">Rua Custódio Brás Pacheco 184, Vila Nova de Milfontes, Portugal, 7645-251</p>
+  <div class="w-full max-w-3xl h-96 rounded-lg overflow-hidden shadow-lg border border-beech">
+    <iframe
+      src="https://www.google.com/maps?q=Rua+Cust%C3%B3dio+Br%C3%A1s+Pacheco+184,+Vila+Nova+de+Milfontes,+Portugal,+7645-251&output=embed"
+      width="100%" height="100%" style="border:0; min-height: 350px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer class="bg-sw-dark text-white py-12">
+  <div class="container mx-auto px-4 flex flex-col items-center gap-5 text-center">
+    <img src="imagens-clinica/logo.jpg" alt="SW Clinic" class="h-14 w-auto rounded-lg"/>
+    <p class="text-xs text-gray-400">© <span id="year"></span> SW Clinic. Clínica Médica e Dentária. Todos os direitos reservados.</p>
+    <a href="https://www.facebook.com/profile.php?id=61587422210167" target="_blank" rel="noopener noreferrer"
+       class="text-xs text-gray-400 hover:text-sw-gold transition-colors flex items-center gap-2">
+      <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.018 1.793-4.683 4.533-4.683 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+      Facebook
+    </a>
+  </div>
+</footer>
+
 </html>

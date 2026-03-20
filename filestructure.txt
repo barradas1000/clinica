@@ -15,8 +15,10 @@
     |-- medicina-familiar-geral.jpg
     |-- montra-clinica.jpg
     |-- rececao.jpg
+    |-- video-clinica.mp4
 |-- index.html
 |-- logo1 copy.png
 |-- logo1.png
 |-- README.md
 |-- vercel.json
+|-- video.html

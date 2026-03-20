@@ -418,6 +418,20 @@
       }, { threshold: 0.15 });
 
       document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+      // Dropdown Mobile: abrir e fechar submenu corretamente
+      const btnMobile = document.getElementById('menuDropdownBtnMobile');
+      const dropdownMobile = document.getElementById('menuDropdownMobile');
+      if (btnMobile && dropdownMobile) {
+        btnMobile.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdownMobile.classList.toggle('hidden');
+        });
+        document.addEventListener('click', function(e) {
+          if (!btnMobile.contains(e.target) && !dropdownMobile.contains(e.target)) {
+            dropdownMobile.classList.add('hidden');
+          }
+        });
+      }
     });
 
     // Smooth scroll para links âncora

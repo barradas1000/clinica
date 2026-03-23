@@ -1,30 +1,44 @@
+
 # SW Clinic Exemplos HTML
 
-Este repositório contém exemplos de páginas HTML para o site da SW Clinic.
+Este repositório contém exemplos de páginas HTML para o site da SW Clinic, incluindo a página principal, variações de layout e páginas de demonstração de funcionalidades modernas para clínicas médicas e dentárias.
 
-## Estrutura e Descrição das Páginas
+## Estrutura do Projeto
 
-- `clinica-site.html`: Página principal da clínica, com menu fixo e transparente sobre a imagem hero. Inclui animações de entrada, cards de serviços com efeito moderno, parallax leve e mudança de fundo do menu ao fazer scroll.
-- `clinica-site-1.html`: Variante da página principal, utilizada para testes de layout, comportamento do menu e experimentação de efeitos visuais. Possui menu transparente, overlay na hero image e mudança de cor ao rolar.
-- `clinica-claude.html`: Página alternativa com design personalizado, paleta de cores exclusiva (dourado, azul escuro, bege), cards de serviços com hover, galeria de imagens, animações suaves e menu responsivo.
-- `clinica-stitch.html`: Página de exemplo com foco em animações de scroll reveal, hero animado, cards de serviços, galeria de imagens e menu responsivo. Utiliza Tailwind CSS e efeitos modernos.
-- `imagens-clinica/`: Pasta com imagens utilizadas nas páginas, incluindo fotos de consultórios, serviços, equipe e logotipos.
+```
+|-- index.html                # Página principal com layout moderno, menu fixo, animações, cards de serviços, formulário de agendamento e Google Maps
+|-- clinica-site.html         # Variante da página principal para testes de layout e efeitos
+|-- clinica-claude.html       # Página alternativa com design e paleta de cores personalizada
+|-- video.html                # Página de vídeo institucional
+|-- imagens-clinica/          # Imagens utilizadas nas páginas (consultórios, equipe, logotipos, etc)
+|-- vercel.json               # Configuração de rotas para deploy na Vercel
+|-- filestructure.txt         # Estrutura detalhada dos arquivos do projeto
+|-- README.md                 # Este arquivo
+```
 
-## Funcionalidades
+## Principais Funcionalidades
 
-- Menu fixo e transparente, sobrepondo a imagem do hero.
-- Mudança de fundo do menu para branco ao fazer scroll.
-- Animações suaves de entrada e scroll reveal.
-- Cards com efeito moderno.
-- Parallax leve na hero image.
+- Menu fixo e transparente, com mudança de cor ao rolar
+- Hero section com imagem de fundo, overlay e animações
+- Cards de especialidades médicas com efeito hover
+- Galeria de imagens com parallax
+- Formulário de agendamento de consulta
+- Seção de contato com telefones e email
+- Integração com Google Maps para localização
+- Animações de entrada (scroll reveal, slide-in, stagger)
+- Totalmente responsivo (desktop e mobile)
 
-## Como usar
+## Como Visualizar
 
-Abra os arquivos HTML em um navegador para visualizar os exemplos.
+Basta abrir qualquer arquivo `.html` em seu navegador. Recomenda-se iniciar pelo `index.html` para ver o layout principal e todas as funcionalidades.
 
 ## Customização
 
-Edite os arquivos HTML e CSS conforme necessário para adaptar ao visual desejado.
+Edite os arquivos HTML e as classes Tailwind CSS conforme necessário para adaptar ao visual desejado. As imagens podem ser substituídas na pasta `imagens-clinica/`.
+
+## Deploy
+
+O projeto pode ser hospedado facilmente na Vercel. O arquivo `vercel.json` já define as rotas amigáveis para cada página.
 
 ## Contato
 

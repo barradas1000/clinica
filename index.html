@@ -542,7 +542,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // HEADER já existente (mantém)
   window.addEventListener('scroll', function() {
     const header = document.getElementById('mainHeader');
-    if (window.scrollY > 50) { // Adjust scroll threshold as needed
+    if (window.scrollY > 50) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
@@ -552,59 +552,43 @@ document.addEventListener('DOMContentLoaded', function() {
   // ===== SCROLL REVEAL MELHORADO =====
   document.addEventListener('DOMContentLoaded', function() {
     const fadeElements = document.querySelectorAll('.fade-up');
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, {
-      threshold: 0.2
-    });
-
+    }, { threshold: 0.2 });
     fadeElements.forEach(el => observer.observe(el));
 
     // Custom scroll animation for slide-in-left-slow
     const slideInLeftSlowElements = document.querySelectorAll('.scroll-animate-left');
-
     const slideInObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('slide-in-left-slow');
-          slideInObserver.unobserve(entry.target); // Stop observing once animated
+          slideInObserver.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.1 // Adjust as needed
-    });
+    }, { threshold: 0.1 });
+    slideInLeftSlowElements.forEach(el => slideInObserver.observe(el));
 
-  slideInLeftSlowElements.forEach(el => slideInObserver.observe(el));
+    // Custom scroll animation for text slide-in
+    const textSlideInElements = document.querySelectorAll('.scroll-animate-text');
+    const textSlideInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('text-slide-in-active');
+          textSlideInObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.8 });
+    textSlideInElements.forEach(el => textSlideInObserver.observe(el));
 
-  // Custom scroll animation for text slide-in
-  const textSlideInElements = document.querySelectorAll('.scroll-animate-text');
-
-  const textSlideInObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('text-slide-in-active');
-        textSlideInObserver.unobserve(entry.target); // Stop observing once animated
-      }
-    });
-  }, {
-    threshold: 0.8 // Adjust as needed, higher for text to appear later
-  });
-
-  textSlideInElements.forEach(el => textSlideInObserver.observe(el));
-});
-
-  // ===== STAGGER MELHORADO =====
-  document.addEventListener('DOMContentLoaded', function() {
+    // ===== STAGGER MELHORADO =====
     const staggerEls = document.querySelectorAll('.fade-up-stagger');
-
-    const observer = new IntersectionObserver((entries) => {
+    const staggerObserver = new IntersectionObserver((entries) => {
       let delay = 0;
-
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.style.animationDelay = `${delay}s`;
@@ -613,19 +597,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }, { threshold: 0.15 });
-
-    staggerEls.forEach(el => observer.observe(el));
+    staggerEls.forEach(el => staggerObserver.observe(el));
   });
 
-// ===== PARALLAX SUAVE =====
-window.addEventListener("scroll", function () {
-  const scrollY = window.scrollY;
-  const hero = document.querySelector("section.relative");
-
-  if (hero) {
-    hero.style.backgroundPositionY = `${scrollY * 0.3}px`;
-  }
-});
+  // ===== PARALLAX SUAVE =====
+  window.addEventListener("scroll", function () {
+    const scrollY = window.scrollY;
+    const hero = document.querySelector("section.relative");
+    if (hero) {
+      hero.style.backgroundPositionY = `${scrollY * 0.3}px`;
+    }
+  });
 </script>
 <!-- BEGIN: ContactFooterSection -->
 <section class="bg-sw-dark py-24 text-white relative overflow-hidden" id="contactos">
